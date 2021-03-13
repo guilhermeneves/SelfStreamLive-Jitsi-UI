@@ -17,7 +17,7 @@ var interfaceConfig = {
     AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only',
     BRAND_WATERMARK_LINK: '',
 
-    CLOSE_PAGE_GUEST_HINT: false, // A html text to be shown to guests on the close page, false disables it
+    CLOSE_PAGE_GUEST_HINT: true, // A html text to be shown to guests on the close page, false disables it
     /**
      * Whether the connection indicator icon should hide itself based on
      * connection strength. If true, the connection indicator will remain
@@ -47,7 +47,7 @@ var interfaceConfig = {
     DEFAULT_BACKGROUND: '#474747',
     DEFAULT_LOCAL_DISPLAY_NAME: 'me',
     DEFAULT_LOGO_URL: 'images/watermark.svg',
-    DEFAULT_REMOTE_DISPLAY_NAME: 'Fellow Jitster',
+    DEFAULT_REMOTE_DISPLAY_NAME: 'SelfStream User',
     DEFAULT_WELCOME_PAGE_LOGO_URL: 'images/watermark.svg',
 
     DISABLE_DOMINANT_SPEAKER_INDICATOR: false,
@@ -91,13 +91,13 @@ var interfaceConfig = {
     DISPLAY_WELCOME_PAGE_CONTENT: false,
     DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
 
-    ENABLE_DIAL_OUT: true,
+    ENABLE_DIAL_OUT: false,
 
     ENABLE_FEEDBACK_ANIMATION: false, // Enables feedback star animation.
 
     FILM_STRIP_MAX_HEIGHT: 120,
 
-    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
+    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: false,
 
     /**
      * Hide the logo on the deep linking pages.
@@ -107,13 +107,13 @@ var interfaceConfig = {
     /**
      * Hide the invite prompt in the header when alone in the meeting.
      */
-    HIDE_INVITE_MORE_HEADER: false,
+    HIDE_INVITE_MORE_HEADER: true,
 
     INITIAL_TOOLBAR_TIMEOUT: 20000,
-    JITSI_WATERMARK_LINK: 'https://jitsi.org',
+    JITSI_WATERMARK_LINK: 'https://selfstream.live',
 
     LANG_DETECTION: true, // Allow i18n to detect the system language
-    LIVE_STREAMING_HELP_LINK: 'https://jitsi.org/live', // Documentation reference for the live streaming feature.
+    LIVE_STREAMING_HELP_LINK: 'https://selfstream.live/help', // Documentation reference for the live streaming feature.
     LOCAL_THUMBNAIL_RATIO: 16 / 9, // 16:9
 
     /**
@@ -131,7 +131,7 @@ var interfaceConfig = {
      *
      * @type {boolean}
      */
-    MOBILE_APP_PROMO: true,
+    MOBILE_APP_PROMO: false,
 
     /**
      * Specify custom URL for downloading android mobile app.
@@ -173,7 +173,7 @@ var interfaceConfig = {
      * Specify which sharing features should be displayed. If the value is not set
      * all sharing features will be shown. You can set [] to disable all.
      */
-    // SHARING_FEATURES: ['email', 'url', 'dial-in', 'embed'],
+    SHARING_FEATURES: [],
 
     SHOW_BRAND_WATERMARK: false,
 
@@ -185,7 +185,7 @@ var interfaceConfig = {
     SHOW_CHROME_EXTENSION_BANNER: false,
 
     SHOW_DEEP_LINKING_IMAGE: false,
-    SHOW_JITSI_WATERMARK: true,
+    SHOW_JITSI_WATERMARK: false,
     SHOW_POWERED_BY: false,
     SHOW_PROMOTIONAL_CLOSE_PAGE: false,
 
@@ -193,7 +193,7 @@ var interfaceConfig = {
      * If indicated some of the error dialogs may point to the support URL for
      * help.
      */
-    SUPPORT_URL: 'https://community.jitsi.org/',
+    SUPPORT_URL: 'https://selfstream.live/help',
 
     TOOLBAR_ALWAYS_VISIBLE: false,
 

@@ -355,7 +355,7 @@ var config = {
 
     // Whether to use a welcome page or not. In case it's false a random room
     // will be joined when no room is specified.
-    enableWelcomePage: true,
+    enableWelcomePage: false,
 
     // Disable app shortcuts that are registered upon joining a conference
     // disableShortcuts: false,
@@ -366,7 +366,7 @@ var config = {
 
     // Enabling the close page will ignore the welcome page redirection when
     // a call is hangup.
-    // enableClosePage: false,
+    enableClosePage: true,
 
     // Disable hiding of remote thumbnails when in a 1-on-1 conference call.
     // disable1On1Mode: false,
@@ -390,7 +390,7 @@ var config = {
 
     // Enables calendar integration, depends on googleApiApplicationClientID
     // and microsoftApiApplicationClientID
-    // enableCalendarIntegration: false,
+    enableCalendarIntegration: false,
 
     // When 'true', it shows an intermediate page before joining, where the user can configure their devices.
     // prejoinPageEnabled: false,
@@ -425,13 +425,13 @@ var config = {
     // - it's impossible to control the placement of buttons
     // - 'desktop' controls the "Share your screen" button
     // - if `toolbarButtons` is undefined, we fallback to enabling all buttons on the UI
-    // toolbarButtons: [
-    //    'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
-    //    'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
-    //    'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
-    //    'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-    //    'tileview', 'select-background', 'download', 'help', 'mute-everyone', 'mute-video-everyone', 'security'
-    // ],
+    toolbarButtons: [
+       'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
+       'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+       'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
+       'videoquality', 'filmstrip', 'stats', 'shortcuts',
+       'tileview', 'select-background', 'download', 'help', 'mute-everyone', 'mute-video-everyone'
+    ],
 
     // Stats
     //
@@ -621,7 +621,7 @@ var config = {
     // Mainly privacy related settings
 
     // Disables all invite functions from the app (share, invite, dial out...etc)
-    // disableInviteFunctions: true,
+    disableInviteFunctions: true,
 
     // Disables storing the room name to the recents list
     // doNotStoreRoom: true,

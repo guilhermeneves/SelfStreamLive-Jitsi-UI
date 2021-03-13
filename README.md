@@ -1,3 +1,13 @@
+# SelfStream Host UI
+
+- [ ] Moderator starts the meeting with "All Follow me" and "Toogle my video off"
+- [ ] Jitsi Layout Custom option to show 2 people when more in a meeting (https://github.com/cketti/jitsi-hacks)
+- [ ] Jitsi Layout Custom option to add name as a label in the bottom (https://github.com/cketti/jitsi-hacks)
+- [ ] Jitsi Layout Custom option to add a imagem in the video (https://github.com/cketti/jitsi-hacks)
+- [ ] Remove: Meeting in compact format and Invite People button from menu
+- [ ] Change page when close meeting https://domingo-milagres-host.selfstream.live/static/close2.html
+- [ ] Change Index Page Title from 'Jitsi Meet' to 'SelfStream'
+
 # Jitsi Meet - Secure, Simple and Scalable Video Conferences
 
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses [Jitsi Videobridge](https://jitsi.org/videobridge) to provide high quality, [secure](https://jitsi.org/security) and scalable video conferences. Jitsi Meet in action can be seen at [here at the session #482 of the VoIP Users Conference](http://youtu.be/7vFUVClsNh0).

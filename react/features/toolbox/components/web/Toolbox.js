@@ -57,10 +57,13 @@ import { SpeakerStats } from '../../../speaker-stats';
 import {
     ClosedCaptionButton
 } from '../../../subtitles';
-import {
+/* import {
     TileViewButton,
     shouldDisplayTileView,
     toggleTileView
+} from '../../../video-layout'; */
+import {
+    TileDialogButton
 } from '../../../video-layout';
 import {
     OverflowMenuVideoQualityItem,
@@ -141,7 +144,7 @@ type Props = {
     /**
      * Whether or not the tile view is enabled.
      */
-    _tileViewEnabled: boolean,
+    //_tileViewEnabled: boolean,
 
     /**
      * Whether or not the current meeting belongs to a JaaS user.
@@ -257,7 +260,7 @@ class Toolbox extends Component<Props, State> {
         this._onToolbarToggleRaiseHand = this._onToolbarToggleRaiseHand.bind(this);
         this._onToolbarToggleScreenshare = this._onToolbarToggleScreenshare.bind(this);
         this._onToolbarOpenLocalRecordingInfoDialog = this._onToolbarOpenLocalRecordingInfoDialog.bind(this);
-        this._onShortcutToggleTileView = this._onShortcutToggleTileView.bind(this);
+        //this._onShortcutToggleTileView = this._onShortcutToggleTileView.bind(this);
 
         this.state = {
             windowWidth: window.innerWidth
@@ -296,12 +299,12 @@ class Toolbox extends Component<Props, State> {
                 character: 'S',
                 exec: this._onShortcutToggleFullScreen,
                 helpDescription: 'keyboardShortcuts.fullScreen'
-            },
+            }/* ,
             this._shouldShowButton('tileview') && {
                 character: 'W',
                 exec: this._onShortcutToggleTileView,
                 helpDescription: 'toolbar.tileViewToggle'
-            }
+            } */
         ];
 
         KEYBOARD_SHORTCUTS.forEach(shortcut => {
@@ -527,9 +530,9 @@ class Toolbox extends Component<Props, State> {
      * @private
      * @returns {void}
      */
-    _doToggleTileView() {
+    /* _doToggleTileView() {
         this.props.dispatch(toggleTileView());
-    }
+    } */
 
     _onMouseOut: () => void;
 
@@ -626,7 +629,7 @@ class Toolbox extends Component<Props, State> {
         this._doToggleVideoQuality();
     }
 
-    _onShortcutToggleTileView: () => void;
+    //_onShortcutToggleTileView: () => void;
 
     /**
      * Dispatches an action for toggling the tile view.
@@ -634,7 +637,7 @@ class Toolbox extends Component<Props, State> {
      * @private
      * @returns {void}
      */
-    _onShortcutToggleTileView() {
+    /* _onShortcutToggleTileView() {
         sendAnalytics(createShortcutEvent(
             'toggle.tileview',
             {
@@ -642,7 +645,7 @@ class Toolbox extends Component<Props, State> {
             }));
 
         this._doToggleTileView();
-    }
+    } */
 
     _onShortcutToggleFullScreen: () => void;
 
@@ -1167,8 +1170,19 @@ class Toolbox extends Component<Props, State> {
                     onClick = { this._onToolbarToggleRaiseHand }
                     text = { t(`toolbar.${_raisedHand ? 'lowerYourHand' : 'raiseYourHand'}`) } />);
         }
-
-        if (this._shouldShowButton('tileview')) {
+        if (true) {
+            buttons.has('tileview')
+                ? mainMenuAdditionalButtons.push(
+                    <TileDialogButton
+                        key = 'tileview'
+                        showLabel = { false }
+                        visible = { true } />)
+                : overflowMenuAdditionalButtons.push(
+                    <TileDialogButton
+                        key = 'tileview'
+                        showLabel = { true } />);
+        }
+/*         if (this._shouldShowButton('tileview')) {
             buttons.has('tileview')
                 ? mainMenuAdditionalButtons.push(
                     <TileViewButton
@@ -1179,7 +1193,7 @@ class Toolbox extends Component<Props, State> {
                     <TileViewButton
                         key = 'tileview'
                         showLabel = { true } />);
-        }
+        } */
 
         if (this._shouldShowButton('invite')) {
             buttons.has('invite')
@@ -1339,7 +1353,7 @@ function _mapStateToProps(state) {
         _isMobile: isMobileBrowser(),
         _isVpaasMeeting: isVpaasMeeting(state),
         _fullScreen: fullScreen,
-        _tileViewEnabled: shouldDisplayTileView(state),
+        //_tileViewEnabled: shouldDisplayTileView(state),
         _localParticipantID: localParticipant.id,
         _localRecState: localRecordingStates,
         _locked: locked,

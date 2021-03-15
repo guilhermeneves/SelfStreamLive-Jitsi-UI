@@ -16,6 +16,7 @@ import { playSound, registerSound, unregisterSound } from '../sounds';
 import {
     DOMINANT_SPEAKER_CHANGED,
     GRANT_MODERATOR,
+    HIDE_PARTICIPANT,
     KICK_PARTICIPANT,
     MUTE_REMOTE_PARTICIPANT,
     PARTICIPANT_DISPLAY_NAME_CHANGED,
@@ -106,6 +107,13 @@ MiddlewareRegistry.register(store => next => action => {
         const { conference } = store.getState()['features/base/conference'];
 
         conference.kickParticipant(action.id);
+        break;
+    }
+
+    case HIDE_PARTICIPANT: {
+        const { conference } = store.getState()['features/base/conference'];
+
+        conference.hideParticipant(action.id);
         break;
     }
 

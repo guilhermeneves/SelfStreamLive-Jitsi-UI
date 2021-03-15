@@ -631,7 +631,7 @@
         "aboutReadOnly": "Los participantes moderadores pueden agregar una $t(lockRoomPassword) a la reunión. Los participantes deberán proporcionar la $t(lockRoomPassword) antes de que se les permita unirse a la reunión.",
         "about": "Puedes agregar una contraseña a la reunión. Los participantes necesitarán la contraseña para unirse a la reunión.",
         "insecureRoomNameWarning": "El nombre de la sala es inseguro. Participantes no deseados pueden llegar a unirse a la reunión.",
-        "securityOptions": "Opciones de seguridad"
+        "securityOptions": "Administrador de Pantalla"
     },
     "settings": {
         "calendar": {

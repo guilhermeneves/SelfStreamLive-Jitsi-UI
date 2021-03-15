@@ -617,7 +617,7 @@
         "about": "Voce pode adicionar $t(lockRoomPassword) a sua reunião. Participantes terão que fornecer $t(lockRoomPassword) antes de entrar na reunião.",
         "aboutReadOnly": "Moderadores podem adicionar $t(lockRoomPassword) à reunião. Participantes terão que fornecer $t(lockRoomPassword) antes de entrar na reunião.",
         "insecureRoomNameWarning": "A sala é insegura. Participantes não desejados podem entrar na reunião. Considere adicionar seguança no botão segurança.",
-        "securityOptions": "Opções de segurança"
+        "securityOptions": "Gerenciador de Telas"
     },
     "settings": {
         "calendar": {

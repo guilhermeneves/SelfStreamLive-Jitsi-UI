@@ -171,3 +171,13 @@ export const HIDDEN_PARTICIPANT_LEFT = 'HIDDEN_PARTICIPANT_LEFT';
  */
 export const SET_LOADABLE_AVATAR_URL = 'SET_LOADABLE_AVATAR_URL';
 
+/**
+ * Create an action for hide participant from filmstrip.
+ *
+ * {
+ *     type: HIDE_PARTICIPANT,
+ *     id: string
+ * }
+ */
+export const HIDE_PARTICIPANT = 'HIDE_PARTICIPANT';
+

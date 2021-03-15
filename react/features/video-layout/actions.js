@@ -8,6 +8,11 @@ import {
 } from './actionTypes';
 import { shouldDisplayTileView } from './functions';
 
+
+import { toggleDialog } from '../base/dialog';
+
+import { TileDialog } from './components/tile-view-dialog';
+
 /**
  * Creates a (redux) action which signals that the list of known remote participants
  * with screen shares has changed.
@@ -54,5 +59,27 @@ export function toggleTileView() {
         const tileViewActive = shouldDisplayTileView(getState());
 
         dispatch(setTileView(!tileViewActive));
+    };
+}
+/**
+ * Action that triggers toggle of the security options dialog.
+ *
+ * @returns {Function}
+ */
+export function toggleTileDialog() {
+    return function(dispatch: (Object) => Object) {
+        dispatch(toggleDialog(TileDialog));
+    };
+}
+
+export function toggleParticipant(enabled: boolean) {
+    return async (dispatch: Dispatch<any>, getState: Function) => {
+        const conference = getCurrentConference(getState);
+
+        if (enabled) {
+            conference.enableLobby();
+        } else {
+            conference.disableLobby();
+        }
     };
 }

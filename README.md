@@ -1,10 +1,9 @@
 # SelfStream Host UI
 
-- [ ] Moderator starts the meeting with "All Follow me" and "Toogle my video off"
-- [ ] Jitsi Layout Custom option to show 2 people when more in a meeting (https://github.com/cketti/jitsi-hacks)
+- [ ] Jitsi Layout Custom option (Tile View Manager) to show 2 people when more in a meeting (https://github.com/cketti/jitsi-hacks)
 - [ ] Jitsi Layout Custom option to add name as a label in the bottom (https://github.com/cketti/jitsi-hacks)
-- [ ] Jitsi Layout Custom option to add a imagem in the video (https://github.com/cketti/jitsi-hacks)
-- [ ] Remove: Meeting in compact format and Invite People button from menu
+- [ ] Jitsi Layout Custom option to add a imagem in the video (https://github.com/cketti/jitsi-hacks) - Optional
+- [X] Remove: Meeting in compact format and Invite People button from menu
 - [ ] Change page when close meeting https://domingo-milagres-host.selfstream.live/static/close2.html
 - [ ] Change Index Page Title from 'Jitsi Meet' to 'SelfStream'
 

@@ -17,23 +17,136 @@
     }
 }
 
-#lobby-section {
-    display: flex;
-    flex-direction: column;
+#tileparticipants-section {
 
     .description {
         font-size: 13px;
     }
 
     .control-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 15px;
+        display: grid;
+        grid-template-columns: 50px auto;
+        max-width: auto;
+        margin: 0 auto;
+        grid-gap:1px;
+    }
+    .control-row > label {
+        margin-top: 1px;
+    }
 
-        label {
-            font-size: 14px;
-            font-weight: bold;
+    
+    .tilebutton{
+        $btnColor: #293e8a;
+        display: flex;
+        flex-flow: row;
+        * {
+            box-sizing: border-box;
+        }
+        a,
+        button {
+            font-size: 1.1rem;
+        }
+
+        // Reset default link styles
+        a.button {
+            text-decoration: none;
+        }
+
+        // Reset default button styles
+        button.button {
+            border: none;
+            background-color: transparent;
+            font-family: inherit;
+            padding: 0;
+            cursor: pointer;
+
+            @media screen and (-ms-high-contrast: active) {
+                border: 2px solid currentcolor;
+            }
+        }
+
+        a.button,
+        button.button {
+            // Display
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: start; // Optional - see "Gotchas"
+
+            // Visual
+            background-color: $btnColor;
+            color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+            // Size
+            padding: 0.25em 0.75em;
+            min-width: 10ch;
+            min-height: 44px;
+
+            // Text
+            text-align: center;
+            line-height: 1.1;
+
+            transition: 220ms all ease-in-out;
+
+            &:hover,
+            &:active {
+                background-color: scale-color($btnColor, $lightness: -20%);
+            }
+
+            &:focus {
+                outline-style: solid;
+                outline-color: transparent;
+                box-shadow: 0 0 0 4px scale-color($btnColor, $lightness: -40%);
+            }
+
+            &--small {
+                font-size: 0.8rem;
+            }
+
+            &--block {
+                width: 100%;
+            }
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: "Baloo 2", sans-serif;
+        }
+
+        div:not(.card) {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            > * {
+                margin-right: 0.5rem;
+                margin-left: 0.5rem;
+            }
+
+            + div {
+                margin-top: 4rem;
+            }
+        }
+
+        .card {
+            // display: flex;
+            // flex-direction: column;
+            background: #f9f9f9;
+            border: 1px solid #c9c9c9;
+            padding: 1.25rem;
+            border-radius: 8px;
+            width: 80vw;
+
+            h2,
+            p {
+                margin: 0 0 0.8em;
+            }
         }
     }
 }

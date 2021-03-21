@@ -222,6 +222,20 @@ export function getParticipants(stateful: Object | Function) {
 }
 
 /**
+ * Selectors for getting all known participants with fake participants filtered
+ * out.
+ *
+ * @param {(Function|Object|Participant[])} stateful - The redux state
+ * features/base/participants, the (whole) redux state, or redux's
+ * {@code getState} function to be used to retrieve the state
+ * features/base/participants.
+ * @returns {Participant[]}
+ */
+export function getEveryone(stateful: Object | Function) {
+    return _getAllParticipants(stateful);
+}
+
+/**
  * Returns the participant which has its pinned state set to truthy.
  *
  * @param {(Function|Object|Participant[])} stateful - The redux state

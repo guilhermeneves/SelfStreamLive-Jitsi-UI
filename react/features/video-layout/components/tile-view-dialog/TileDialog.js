@@ -87,22 +87,6 @@ function TileDialog({
             width = { 'small' }>
             <div className = 'security-dialog'>
                 <ParticipantsSection />
-                <PasswordSection
-                    canEditPassword = { _canEditPassword }
-                    conference = { _conference }
-                    locked = { _locked }
-                    password = { _password }
-                    passwordEditEnabled = { passwordEditEnabled }
-                    passwordNumberOfDigits = { _passwordNumberOfDigits }
-                    setPassword = { setPassword }
-                    setPasswordEditEnabled = { setPasswordEditEnabled } />
-                {
-                    _showE2ee ? <>
-                        <div className = 'separator-line' />
-                        <E2EESection />
-                    </> : null
-                }
-
             </div>
         </Dialog>
     );

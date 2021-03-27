@@ -20,9 +20,6 @@ type Props = {
      */
     _participants: Object,
 /**
-     * True if the section should be participants.
-     */
-    _participantsToChange: Object,
     /**
      * True if the section should be visible.
      */
@@ -67,9 +64,9 @@ class ParticipantsSection extends PureComponent<Props, State> {
 
         this.state = {
             lobbyEnabled: props._lobbyEnabled,
-            participantsToChange: props._participantsToChange
+            participantsToChange: props._participants
         };
-        this._onToggleItem = this._onToggleItem.bind(this);
+        //this._onToggleItem = this._onToggleItem.bind(this);
         this._onToggleLobby = this._onToggleLobby.bind(this);
         this._onToggleTileView = this._onToggleTileView.bind(this);
         this._onToggleTileViewUpdate = this._onToggleTileViewUpdate.bind(this);
@@ -109,8 +106,10 @@ class ParticipantsSection extends PureComponent<Props, State> {
                     <div className = 'control-row'>
                         { participantsToChange.map((value, index) => {
                             return (<>
-                            <Switch id = {value.id}
-                                onValueChange = {this._onToggleItem(value.id)} 
+                            <Switch data-param = { value.id } 
+                                id = { value.id }
+                                // onValueChange = {this._onToggleItem(value.id)}
+                                onValueChange = {this._onToggleItem.bind(this, value.id)} 
                                 value = {!value.isFakeParticipant} />
                             <label htmlFor = {value.id}>{value.name}</label>
                                 </>)
@@ -146,16 +145,14 @@ class ParticipantsSection extends PureComponent<Props, State> {
         })
         
     }
-    _onToggleItem: (id: string) => void;
+    _onToggleItem: (id: String) => void;
 
-    _onToggleItem(id: string) {
-        const index = this.state.participantsToChange.findIndex(p => p.id === id);
-        let participantsUpdated = this.state.participantsToChange;
-        participantsUpdated[index].isFakeParticipant = !(participantsUpdated[index].isFakeParticipant);  
-        
-        this.setState({
-            participantsToChange: participantsUpdated
-        });
+    _onToggleItem(id) {
+        this.setState(prevState => ({
+            participantsToChange: prevState.participantsToChange.map(
+            obj => (obj.id === id ? Object.assign(obj, { isFakeParticipant: !obj.isFakeParticipant }) : obj)
+          )
+        }));
     }
     _onToggleLobby: () => void;
 
@@ -192,8 +189,7 @@ function mapStateToProps(state: Object): $Shape<Props> {
         _visible: conference && conference.isLobbySupported() && isLocalParticipantModerator(state)
             && !hideLobbyButton,
         _participants: participants,
-        _tileViewEnabled: shouldDisplayTileView(state),
-        _participantsToChange: participants
+        _tileViewEnabled: shouldDisplayTileView(state)
     };
 }
 

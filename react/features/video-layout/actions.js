@@ -12,6 +12,7 @@ import { shouldDisplayTileView } from './functions';
 import { toggleDialog } from '../base/dialog';
 
 import { TileDialog } from './components/tile-view-dialog';
+import { update } from 'lodash';
 
 /**
  * Creates a (redux) action which signals that the list of known remote participants
@@ -54,11 +55,15 @@ export function setTileView(enabled: ?boolean) {
  *
  * @returns {Function}
  */
-export function toggleTileView() {
+export function toggleTileView(updateType=true) {
     return (dispatch: Dispatch<any>, getState: Function) => {
         const tileViewActive = shouldDisplayTileView(getState());
-
-        dispatch(setTileView(!tileViewActive));
+        if(updateType) {
+            dispatch(setTileView(!tileViewActive));
+        } else {
+            dispatch(setTileView(!tileViewActive));
+            dispatch(setTileView(tileViewActive));
+        }
     };
 }
 /**

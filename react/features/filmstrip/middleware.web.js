@@ -53,9 +53,14 @@ MiddlewareRegistry.register(store => next => action => {
 
         if (shouldDisplayTileView(state)) {
             const { width, height } = state['features/filmstrip'].tileViewDimensions.thumbnailSize;
-
+            const participants = state['features/base/participants'];
+            const localIsFake = (participants.find(p => p.local)).isFakeParticipant;
             // Once the thumbnails are reactified this should be moved there too.
-            Filmstrip.resizeThumbnailsForTileView(width, height, true);
+            if(!localIsFake) {
+                Filmstrip.resizeThumbnailsForTileView(width, height, true, false);
+            } else {
+                Filmstrip.resizeThumbnailsForTileView(width, height, true, true);
+            }
         }
         break;
     }

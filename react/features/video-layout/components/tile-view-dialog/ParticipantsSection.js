@@ -7,7 +7,7 @@ import { participantUpdated, getEveryone, isLocalParticipantModerator } from '..
 import { Switch } from '../../../base/react';
 import { connect } from '../../../base/redux';
 import { toggleParticipant } from '../../actions';
-import { toggleTileView, shouldDisplayTileView } from '../../../video-layout'
+import { toggleTileView, shouldDisplayTileView } from '../../../video-layout';
 
 type Props = {
 
@@ -142,8 +142,8 @@ class ParticipantsSection extends PureComponent<Props, State> {
                 id: participant.id,
                 isFakeParticipant: participant.isFakeParticipant,
             }));
-        })
-        
+        });
+        this.props.dispatch(toggleTileView(false));
     }
     _onToggleItem: (id: String) => void;
 
@@ -184,12 +184,13 @@ function mapStateToProps(state: Object): $Shape<Props> {
     const { hideLobbyButton } = state['features/base/config'];
     const participants = getEveryone(state); //participants that were selected
 
+
     return {
         _lobbyEnabled: state['features/lobby'].lobbyEnabled,
         _visible: conference && conference.isLobbySupported() && isLocalParticipantModerator(state)
             && !hideLobbyButton,
         _participants: participants,
-        _tileViewEnabled: shouldDisplayTileView(state)
+        _tileViewEnabled: shouldDisplayTileView(state),
     };
 }
 

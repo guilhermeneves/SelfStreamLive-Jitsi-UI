@@ -297,7 +297,7 @@ class Thumbnail extends Component<Props, State> {
             <>
                 <img
                     className = 'sharedVideoAvatar'
-                    src = { `https://img.youtube.com/vi/${id}/0.jpg` } />
+                    src = { `https://img.youtube.com/vi/0/0.jpg` } />
                 <div className = 'displayNameContainer'>
                     <DisplayName
                         elementID = 'sharedVideoContainer_name'

@@ -35,7 +35,7 @@ const Filmstrip = {
      * @param {boolean} forceUpdate
      * @returns {void}
      */
-    resizeThumbnailsForTileView(width, height, forceUpdate = false) {
+    resizeThumbnailsForTileView(width, height, forceUpdate = false, localParticipant=false) {
         const thumbs = this._getThumbs(!forceUpdate);
 
         if (thumbs.localThumb) {
@@ -46,6 +46,17 @@ const Filmstrip = {
                 'min-width': `${width}px`,
                 width: `${width}px`
             });
+            if(localParticipant) {
+                thumbs.localThumb.css({
+                    'visibility':'hidden',
+                    'display':'none'
+                });
+            } else {
+                thumbs.localThumb.css({
+                    'visibility':'visible',
+                    'display':'block'
+                })
+            }  
         }
 
         if (thumbs.remoteThumbs) {
@@ -56,6 +67,16 @@ const Filmstrip = {
                 'min-width': `${width}px`,
                 width: `${width}px`
             });
+
+            thumbs.remoteThumbs.has("img[src*='youtube']").css({
+                'visibility':'hidden',
+                'display':'none'
+            })
+
+            thumbs.remoteThumbs.not(":has(img[src*='youtube'])").css({
+                'visibility':'visible',
+                'display':'block'
+            })
         }
     },
 
@@ -144,6 +165,7 @@ const Filmstrip = {
         if (localThumb.hasClass('hidden')) {
             return { remoteThumbs };
         }
+        
 
         return { remoteThumbs,
             localThumb };

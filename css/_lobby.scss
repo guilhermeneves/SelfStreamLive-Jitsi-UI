@@ -45,6 +45,7 @@
         a,
         button {
             font-size: 1.1rem;
+            margin-right: 15px;
         }
 
         // Reset default link styles
@@ -72,7 +73,7 @@
             align-items: center;
             justify-content: center;
             align-self: start; // Optional - see "Gotchas"
-
+            margin-right: 15px;
             // Visual
             background-color: $btnColor;
             color: #fff;
